@@ -23,7 +23,7 @@ export const register = async (req,res) => {
         })
 
         res.cookie('token', token)
-        res.json({msg: `User ${userCreated.username} with id: ${userCreated._id} successfully created`})
+        res.json(userCreated)
         console.log(`User ${username} succesfully saved`);
 
     } catch (error) {
