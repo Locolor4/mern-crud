@@ -14,7 +14,7 @@ export const App = () => {
                     <Route path='/tasks' element={<h1>Home Page</h1>} />
                     <Route path='/add-task' element={<h1>Home Page</h1>} />
                     <Route path='/task/:id' element={<h1>Home Page</h1>} />
-                    <Route path='/profile' element={<h1>Home Page</h1>} />
+                    <Route path='/profile' element={<h1>Profile</h1>} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

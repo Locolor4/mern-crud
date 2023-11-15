@@ -6,10 +6,14 @@ export const register = async (req,res) => {
     
     const {username, email, password} = req.body
 
-    const passwordHashed = await bcrypt.hash(password, 10) 
-
+    
     try {
 
+        const userFound = await User.findOne({email})
+        if(userFound) return res.status(400).json(['Email alrdy used'])
+
+        const passwordHashed = await bcrypt.hash(password, 10) 
+        
         const newUser = new User({
             username,
             email,
@@ -39,7 +43,7 @@ export const login = async (req,res) => {
     try {
         
         const userFound = await User.findOne({email})
-        if(!userFound) return res.status(400).json({msg: 'User not found'})
+        if(!userFound) return res.status(400).json(['User not found'])
 
         const passwordMatch = await bcrypt.compare(password, userFound.password)
         if(!passwordMatch) return res.status(400).json({msg: `Password Incorrect`})
