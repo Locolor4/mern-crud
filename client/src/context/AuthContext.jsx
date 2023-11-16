@@ -18,6 +18,13 @@ export const AuthProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [errors, setErrors] = useState([])
 
+
+    const clearErrors = () => {
+        if(errors.length > 0) {
+            setErrors([])
+        }
+    }
+
     const signUp = async (values) => {
 
         try {
@@ -39,8 +46,12 @@ export const AuthProvider = ({children}) => {
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
+
             console.log(error.response.data);
-            setErrors(error.response.data)            
+            if(Array.isArray(error.response.data)) {
+                return setErrors(error.response.data)
+            }
+            setErrors([error.response.data.msg])            
         }
     }
 
@@ -50,7 +61,8 @@ export const AuthProvider = ({children}) => {
             user,
             isAuthenticated,
             errors,
-            signIn
+            signIn,
+            clearErrors
         }}>
             {children}
         </AuthContext.Provider>
