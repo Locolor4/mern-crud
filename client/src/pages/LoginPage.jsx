@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     useEffect(() => {
 
-        if(isAuthenticated) navigation('/profile')
+        if(isAuthenticated) navigation('/tasks')
         return () => clearErrors()
     }, [isAuthenticated])
 
