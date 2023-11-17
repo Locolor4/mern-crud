@@ -39,8 +39,8 @@ const LoginPage = () => {
                     {errors.password && (
                         <p>Password is required</p>
                     )}
-                    <button type='submit'>
-                        Submit
+                    <button type='submit' className='bg-sky-500 text-white px-4 py-2 rounded-md my-2'>
+                        Login
                     </button>
                 </form>
                 <p>Don't have an account? <Link to={'/register'} className='font-bold'>Sign In</Link></p>

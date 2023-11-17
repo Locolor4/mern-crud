@@ -37,8 +37,8 @@ const RegisterPage = () => {
                     <input type="text" {...register('username', {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'placeholder='Username' onClick={clearErrors}/>
                     <input type="email" {...register('email', {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'placeholder='Email' onClick={clearErrors}/>
                     <input type="password" {...register('password', {required: true})} className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'placeholder='Password' onClick={clearErrors}/>
-                    <button type='submit'>
-                        Submit
+                    <button type='submit' className='bg-sky-500 text-white px-4 py-2 rounded-md my-2'>
+                        Register
                     </button>
                 </form>
                 <p>
